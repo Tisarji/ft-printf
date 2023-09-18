@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_lt.h                                     :+:      :+:    :+:   */
+/*   ft_printf_string.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jikarunw <jikarunw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/16 22:46:56 by jikarunw          #+#    #+#             */
-/*   Updated: 2023/09/17 14:28:57 by jikarunw         ###   ########.fr       */
+/*   Created: 2023/09/16 22:35:44 by jikarunw          #+#    #+#             */
+/*   Updated: 2023/09/17 23:51:52 by jikarunw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_LT_H
-# define FT_PRINTF_LT_H
+#include "../includes/ft_printf.h"
 
-typedef struct s_printf
+int	ft_printf_string(char *str)
 {
-	int		neg;
-	int		len;
-	int		pre;
-	char	type;
-}	t_printf;
+	unsigned int	count;
 
-#endif
+	if (!str)
+	{
+		ft_putchar_fd("(null)", 1);
+		return (6);
+	}
+	ft_putchar_fd(str, 1);
+	count = ft_strlen(str);
+	return (count);
+}

@@ -6,13 +6,54 @@
 /*   By: jikarunw <jikarunw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 22:31:15 by jikarunw          #+#    #+#             */
-/*   Updated: 2023/09/16 22:32:54 by jikarunw         ###   ########.fr       */
+/*   Updated: 2023/09/18 10:17:47 by jikarunw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_printf(const char *s, ...)
+static int	ft_handle_printf(const char *input, unsigned int *i, va_list *args)
 {
-	return (0);
+	unsigned int	count;
+
+	count = 0;
+	if (input[*i] == 'd')
+		count += ft_printf_nbr(va_arg(*args, int));
+	else if (input[*i] == 'c')
+		count += ft_printf_char(va_arg(*args, int));
+	else if (input[*i] == 's')
+		count += ft_printf_string(va_arg(*args, char *));
+	else if (input[*i] == 'p')
+		count += ft_printf_ptr(va_arg(*args, void *));
+	else if (input[*i] == 'x')
+		count += ft_printf_hex(va_arg(*args, int), 1);
+	else if (input[*i] == 'X')
+		count += ft_printf_hex(va_arg(*args, int), 0);
+	else if (input[*i] == '%')
+	{
+		ft_printf_char('%');
+		return (0);
+	}
+	return (count);
+}
+
+int	ft_printf(const char *str, ...)
+{
+	va_list			args;
+	unsigned int	i;
+	unsigned int	len;
+
+	i = 0;
+	len = 0;
+	va_start(args, str);
+	while (str[i])
+	{
+		if (str[i++] == '%')
+			len += ft_handle_printf(str, &i, &args);
+		else
+			len += ft_printf_char(str[i]);
+		i++;
+	}
+	va_end(args);
+	return (len);
 }

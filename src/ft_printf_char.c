@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_d.c                                      :+:      :+:    :+:   */
+/*   ft_printf_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jikarunw <jikarunw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/16 22:34:49 by jikarunw          #+#    #+#             */
-/*   Updated: 2023/09/16 22:52:38 by jikarunw         ###   ########.fr       */
+/*   Created: 2023/09/16 22:35:29 by jikarunw          #+#    #+#             */
+/*   Updated: 2023/09/17 23:55:54 by jikarunw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-void	ft_format_d(t_printf data, va_list ap)
+int	ft_printf_char(int c)
 {
-
+	ft_putchar_fd(c, 1);
+	return (-1);
 }
