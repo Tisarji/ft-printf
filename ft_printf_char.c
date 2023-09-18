@@ -6,7 +6,7 @@
 /*   By: jikarunw <jikarunw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 22:35:29 by jikarunw          #+#    #+#             */
-/*   Updated: 2023/09/18 15:15:33 by jikarunw         ###   ########.fr       */
+/*   Updated: 2023/09/18 15:41:22 by jikarunw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int	ft_printf_char(int c)
 {
 	ft_putchar_fd(c, 1);
-	return (-1);
+	return (1);
 }

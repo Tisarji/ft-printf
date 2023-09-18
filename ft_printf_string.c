@@ -6,7 +6,7 @@
 /*   By: jikarunw <jikarunw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 22:35:44 by jikarunw          #+#    #+#             */
-/*   Updated: 2023/09/18 15:15:13 by jikarunw         ###   ########.fr       */
+/*   Updated: 2023/09/18 15:49:21 by jikarunw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	ft_printf_string(char *str)
 
 	if (!str)
 	{
-		ft_putchar_fd("(null)", 1);
+		ft_putstr_fd("(null)", 1);
 		return (6);
 	}
-	ft_putchar_fd(str, 1);
+	ft_putstr_fd(str, 1);
 	count = ft_strlen(str);
 	return (count);
 }

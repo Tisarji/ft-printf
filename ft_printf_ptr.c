@@ -6,7 +6,7 @@
 /*   By: jikarunw <jikarunw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 22:35:42 by jikarunw          #+#    #+#             */
-/*   Updated: 2023/09/18 15:15:19 by jikarunw         ###   ########.fr       */
+/*   Updated: 2023/09/18 16:45:54 by jikarunw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	ft_size_hex_adr(unsigned long long n)
 	int	size;
 
 	size = 0;
+	if (n == 0)
+		return (1);
 	while (n)
 	{
 		size++;
@@ -32,20 +34,15 @@ static int	ft_hex_adr(unsigned long long n)
 
 	size = ft_size_hex_adr(n);
 	base_16 = "0123456789abcdef";
-	if (n < 16)
+	while (size > 0)
 	{
-		if (ft_printf_char(base_16[n]) == -1)
-			return (-1);
+		size--;
+		ft_printf_char(base_16[(n >> (size * 4)) & 0xf]);
 	}
-	else
-	{
-		ft_hex_adr(n / 10);
-		ft_hex_adr(n % 10);
-	}
-	return (size);
+	return (ft_size_hex_adr(n));
 }
 
-int	printf_ptr(void *ptr)
+int	ft_printf_ptr(void *ptr)
 {
 	int	n;
 

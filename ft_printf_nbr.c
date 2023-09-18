@@ -6,7 +6,7 @@
 /*   By: jikarunw <jikarunw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 22:34:49 by jikarunw          #+#    #+#             */
-/*   Updated: 2023/09/17 23:55:37 by jikarunw         ###   ########.fr       */
+/*   Updated: 2023/09/18 17:16:45 by jikarunw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	ft_printf_nbr(int num)
 {
 	int	digit;
+	int	temp;
+	int	div;
 
 	digit = 0;
 	if (num == INT_MIN)
@@ -24,8 +26,18 @@ int	ft_printf_nbr(int num)
 		digit += ft_printf_char('-');
 		num *= -1;
 	}
-	if (num > 9)
-		digit = ft_printf_nbr(num / 10);
-	digit += ft_printf_char((num % 10) + 48);
+	temp = num;
+	div = 1;
+	while (temp >= 10)
+	{
+		temp /= 10;
+		div *= 10;
+	}
+	while (div > 0)
+	{
+		digit += ft_printf_char('0' + (num / div));
+		num %= div;
+		div /= 10;
+	}
 	return (digit);
 }
