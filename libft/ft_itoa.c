@@ -6,7 +6,7 @@
 /*   By: jikarunw <jikarunw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 23:31:48 by jikarunw          #+#    #+#             */
-/*   Updated: 2023/09/05 14:22:23 by jikarunw         ###   ########.fr       */
+/*   Updated: 2023/09/18 17:50:55 by jikarunw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static unsigned int	get_nb_digit(long n_l, int sign)
 	if (n_l == 0)
 		return (1);
 	nb_digit = 0;
-	while (n_l > 0) 
+	while (n_l > 0)
 	{
 		n_l /= 10;
 		nb_digit++;

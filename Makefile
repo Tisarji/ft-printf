@@ -6,7 +6,7 @@
 #    By: jikarunw <jikarunw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/16 22:30:03 by jikarunw          #+#    #+#              #
-#    Updated: 2023/09/18 15:55:54 by jikarunw         ###   ########.fr        #
+#    Updated: 2023/09/18 18:57:06 by jikarunw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ PRINTF_SRC			=	ft_printf.c \
 
 # Compiler
 CC 					= 	cc
-CFLAGS		 		= 	-Wall -Werror -Wextra -I$(LOCAL_HEADER_PATH)
+CFLAGS		 		= 	-Wall -Werror -Wextra -I $(LOCAL_HEADER_PATH)
 
 OBJS				=	$(PRINTF_SRC:.c=.o)
 
@@ -60,4 +60,4 @@ fclean:				clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re make_libft
